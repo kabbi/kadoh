@@ -49,8 +49,18 @@ task('default', [], function() {
 namespace('test', function() {
   desc('Testing in node');
   task('node', ['default'], function(reporter) {
+    var watchMode = false;
     reporter = reporter || 'dot'
-    var mocha = PROC.spawn('mocha', ['--colors', '--reporter', reporter]);
+    if (reporter == 'watch') {
+      reporter = 'min';
+      watchMode = true;
+    }
+    var args = ['--colors', '--reporter', reporter];
+    if (watchMode) {
+      args.push('--watch')
+      args.push('--growl');
+    }
+    var mocha = PROC.spawn('mocha', args);
     mocha.stdout.pipe(process.stdout, { end: false });
     mocha.stderr.pipe(process.stderr, { end: false });
   }, true);
@@ -166,7 +176,7 @@ namespace('run', function() {
   
   function run(type) {
     return function(port) {
-      port = parseInt(port, 10) || 8080 ;
+      port = parseInt(port, 10) || 2121 ;
       require(UI_FILES[type].app).server.listen(port);
       console.log('Server running on http://localhost:'+port);
     }
