@@ -65,6 +65,24 @@ namespace('test', function() {
     mocha.stderr.pipe(process.stderr, { end: false });
   }, true);
 
+  desc('Instrumentation tests');
+  task('instr', ['default'], function(reporter) {
+    var watchMode = false;
+    reporter = reporter || 'dot'
+    if (reporter == 'watch') {
+      reporter = 'min';
+      watchMode = true;
+    }
+    var args = ['test/instrumentation/*.js', '--colors', '--reporter', reporter];
+    if (watchMode) {
+      args.push('--watch')
+      args.push('--growl');
+    }
+    var mocha = PROC.spawn('mocha', args);
+    mocha.stdout.pipe(process.stdout, { end: false });
+    mocha.stderr.pipe(process.stderr, { end: false });
+  }, true);
+
   desc('Testing in the browser');
   task('browser', ['default'], function() {
     jake.Task['build:test'].execute();
