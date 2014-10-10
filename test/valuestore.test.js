@@ -39,15 +39,15 @@ describe('Value Store', function() {
       });
 
       it('should be possible to retrieve later (with callback)', function(done) {
-        v.retrieve(key, function(obj) {
-          expect(obj.foo).to.equal('bar');
+        v.retrieve(key, function(objs) {
+          expect(objs[0].value.foo).to.equal('bar');
           done();
         });
       });
 
       it('should be possible to retrieve later (with deferred)', function(done) {
-        v.retrieve(key).then(function(obj) {
-          expect(obj.foo).to.equal('bar');
+        v.retrieve(key).then(function(objs) {
+          expect(objs[0].value.foo).to.equal('bar');
           done();
         });
       });
@@ -72,8 +72,8 @@ describe('Value Store', function() {
       });
 
       it('should be there now..', function(done) {
-        v.retrieve(key, function(obj) {
-          expect(obj.foo).to.equal('babar');
+        v.retrieve(key, function(objs) {
+          expect(objs[0].value.foo).to.equal('babar');
           done();
         });
       });
