@@ -1,4 +1,5 @@
 expect = require('chai').expect;
+fs     = require('fs')
 
 describe('globals', function() {
   globals = require('../lib/globals');
@@ -31,6 +32,17 @@ describe('globals', function() {
     expect(globals.TIMEOUT_RPC).to.be.ok;
     expect(globals.TIMEOUT_RPC).to.be.a('number');
   });
+
+  it('should define a refresh timeout for kbuckets', function() {
+    expect(globals.TIMEOUT_REFRESH).to.be.ok;
+    expect(globals.TIMEOUT_REFRESH).to.be.a('number');
+  });
+
+  it('should define valid rendezvous peer keep-alive timeout', function() {
+    expect(globals.TIMEOUT_KEEP_ALIVE).to.be.ok;
+    expect(globals.TIMEOUT_KEEP_ALIVE).to.be.a('number');
+    expect(globals.TIMEOUT_KEEP_ALIVE).to.be.positive();
+  });
   
   it('should define a regex for id validations function', function() {
     expect(globals.REGEX_NODE_ID).to.be.ok;
@@ -40,5 +52,8 @@ describe('globals', function() {
   it('should define all the RPC functions', function() {
     expect(globals.RPCS).to.be.ok;
     expect(globals.RPCS).to.be.instanceof(Array);
+    // Count handler classes, excluding RPC itself
+    rpcHandlerCount = fs.readdirSync('lib/network/rpc').length - 1;
+    expect(globals.RPCS).to.have.length(rpcHandlerCount);
   });
 });

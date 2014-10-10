@@ -55,7 +55,6 @@ describe('Crypto', function() {
       expect(distance([35,90,34], [35,90,34], true)).to.equal(0);
     });
 
-    // 'and ask the distance between two different length objects': {
     it('should throw when I give two different sized objects', function() {
       expect(function() { distance([123,45,67], [34,67,45,90], true); }).to.throw;
     });

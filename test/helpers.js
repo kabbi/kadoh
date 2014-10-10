@@ -12,7 +12,13 @@ function helperChai(chai, utils) {
     }
   }
 
+  function assertPositive() {
+  	var obj = utils.flag(this, 'object');
+  	this.assert(obj > 0, "expected " + obj + " to be positive");
+  }
+
   chai.Assertion.addMethod('sorted', assertSorted);
+  chai.Assertion.addMethod('positive', assertPositive);
 }
 
 chai.use(helperChai);

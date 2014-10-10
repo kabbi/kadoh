@@ -63,12 +63,12 @@ KadOHui.Routing.prototype = {
             '<table class="table table-striped">' +
 
             kbucket.peers.map(function(peer) {
-              var time = new Date(peer[2]);
+              var time = new Date(peer[4]);
               var human_time = (time.getMonth()+1)+'/'+time.getDate()+'/'+time.getFullYear()+' '+time.toLocaleTimeString();
 
               return [
                 '<tr class="peer">',
-                  '<td class="distance">'+peer[3]+'</td>',
+                  '<td class="distance">'+peer[5]+'</td>',
                   '<td class="jid">'+peer[0]+'</td>',
                   '<td class="sha"><span data-placement="bottom" rel="tooltip" title="'+peer[1]+'">'+peer[1].slice(0,10)+'</span></td>',
                   '<td class="last-seen">',

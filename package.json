@@ -1,47 +1,62 @@
 {
-    "name": "kadoh"
-  , "version": "0.1.0"
-  , "description": "Kademlia over HTTP in Javascript"
-  , "keywords":["p2p", "kad", "kademlia", "dht", "mainline", "bittorrent", "http", "xmpp", "bosh", "udp", "socket.io"]
-  , "contributors": [
-        "Alexandre Lachèze <alexandre.lacheze@gmail.com>"
-      , "Pierre Guilleminot <pierre.guilleminot@gmail.com>"
-    ]
-  , "repository":{
-        "type": "git"
-      , "url": "https://github.com/jinroh/kadoh.git"
-    }
-  , "main" : "./lib/index.js"
-  , "browserify" : "./lib/index-browserify.js"
-  , "dependencies": {
-        "colors"           : "~0.6"
-      , "connect"          : "~2.0"
-      , "express"          : "~2.5"
-      , "ifconfig.me"      : "https://github.com/alexstrat/ifconfig.me-node/tarball/master"
-      , "jake"             : "~0.1"
-      , "klass"            : "~1.2"
-      , "ltx"              : ">= 0.2.0"
-      , "node-xmpp"        : "~0.3"
-      , "bncode"           : "~0.2"
-      , "socket.io"        : "~0.9"
-      , "socket.io-client" : "https://github.com/substack/socket.io-client/tarball/master"
-      , "mustache"         : "~0.4"
-      , "browserify"       : "https://github.com/alexstrat/node-browserify/tarball/for-kadoh"
-      , "tagify"           : "*"
-      , "Strophe.js"       : "https://github.com/alexstrat/strophejs/tarball/for-kadoh"
-    },
-    "scripts": {
-      "test": "jake test:node[spec]"
-    },
-   "devDependencies": {
-        "mocha"            : "~1.0"
-      , "chai"             : "~1.9"
-      , "chai-as-promised" : "~4.1.1"
-      , "sinon-chai"       : "~2.5"
-      , "sinon"            : "~1.10"
-      , "optimist"         : "~0.3"
-      , "nconf"            : "~0.5"
-      , "multimeter"       : "~0.1"
-    }
-  , "engines": { "node": ">= 0.6.0" }
+  "name": "kadoh",
+  "version": "0.1.0",
+  "description": "Kademlia over HTTP in Javascript",
+  "keywords": [
+    "p2p",
+    "kad",
+    "kademlia",
+    "dht",
+    "mainline",
+    "bittorrent",
+    "http",
+    "xmpp",
+    "bosh",
+    "udp",
+    "socket.io"
+  ],
+  "contributors": [
+    "Alexandre Lachèze <alexandre.lacheze@gmail.com>",
+    "Pierre Guilleminot <pierre.guilleminot@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jinroh/kadoh.git"
+  },
+  "main": "./lib/index.js",
+  "browserify": "./lib/index-browserify.js",
+  "dependencies": {
+    "Strophe.js": "https://github.com/alexstrat/strophejs/tarball/for-kadoh",
+    "bncode": "~0.2",
+    "browserify": "https://github.com/alexstrat/node-browserify/tarball/for-kadoh",
+    "colors": "~0.6",
+    "connect": "~2.0",
+    "express": "~2.5",
+    "ifconfig.me": "https://github.com/alexstrat/ifconfig.me-node/tarball/master",
+    "jake": "~0.1",
+    "klass": "~1.2",
+    "ltx": ">= 0.2.0",
+    "mustache": "~0.4",
+    "node-xmpp": "~0.3",
+    "socket.io": "~0.9",
+    "socket.io-client": "https://github.com/substack/socket.io-client/tarball/master",
+    "tagify": "*",
+    "underscore": "^1.7.0"
+  },
+  "scripts": {
+    "test": "jake test:node[spec]"
+  },
+  "devDependencies": {
+    "mocha": "~1.0",
+    "chai": "~1.9",
+    "chai-as-promised": "~4.1.1",
+    "sinon-chai": "~2.5",
+    "sinon": "~1.10",
+    "optimist": "~0.3",
+    "nconf": "~0.5",
+    "multimeter": "~0.1"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
+  }
 }
